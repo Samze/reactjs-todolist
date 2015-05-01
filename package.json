@@ -1,0 +1,17 @@
+{
+  "name": "react-blog",
+  "version": "1.0.0",
+  "description": "An example blogging site built with reactjs",
+  "main": "server.js",
+  "scripts": {
+    "build-dev": "browserify -d -e app/bootstrap.js -t reactify -o public/scripts/bundle-dev.js",
+    "build-min": "browserify -e app/bootstrap.js -t reactify -t uglifyify -o public/scripts/bundle-min.js"
+  },
+  "author": "Sam Gunaratne",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "express": "^4.12.3",
+    "node-jsx": "^0.13.3",
+    "react": "^0.13.2"
+  }
+}

@@ -1,0 +1,69 @@
+/* Noramalize */
+body { 
+	background: #205081;
+    margin: 0;
+    padding: 0;
+    font-family: "Courier New";
+}
+
+h1  {
+	margin: 0;
+}
+
+/* Layout */
+.layout__top {
+	background-color: white;
+	text-align: center;
+	padding: 10px;
+}
+
+.TodoListComponent {
+	margin-left: 20%;
+	margin-right: 20%;
+	color: white;
+}
+
+.TodoEntryComponent {
+	background-color: white;
+	color: black;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	/*padding: 10px;*/
+}
+
+@media (max-width:600px) {
+	.TodoListComponent {
+		margin-left: 0;
+		margin-right: 0;
+	}
+}
+
+.TodoAuthor {
+	color :green;
+}
+
+.TodoSide {
+	margin:0;
+	padding:0;
+	float:right;
+}
+
+.TodoBody {
+	word-wrap: break-word;
+}
+
+.TodoDate {
+}
+
+.formColour {
+	background-color: lavender;
+}
+
+.TodoFormTextArea {
+	width:100%;
+}
+
+.TodoRemove {
+	background: #205081;
+	color:white;
+}
