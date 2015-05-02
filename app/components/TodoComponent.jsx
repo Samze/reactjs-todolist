@@ -6,63 +6,63 @@ var idState = 0;
 
 var TodoComponent = React.createClass({
 
-	handleRemoveTodo: function(event){
-		var removeId = event.detail.id;
-		var todoList = this.state.data
+    handleRemoveTodo: function(event){
+        var removeId = event.detail.id;
+        var todoList = this.state.data
 
-		var newList = todoList.filter(function(item){
-			return (item.id !== removeId)
-		});
+        var newList = todoList.filter(function(item){
+            return (item.id !== removeId)
+        });
 
-		this.setState({data : newList});
-	},
-	handleNewTodo : function(event){
-		//Todo add to server
-		var newBlog = event.detail;
-		var newState = this.state.data
+        this.setState({data : newList});
+    },
+    handleNewTodo : function(event){
+        //Todo add to server
+        var newBlog = event.detail;
+        var newState = this.state.data
 
-		newBlog.id = ++idState;
-		newBlog.date = new Date().toISOString();
+        newBlog.id = ++idState;
+        newBlog.date = new Date().toISOString();
 
-		newState.unshift(newBlog);
-		this.setState({data : newState});
-	},
-	getInitialState : function(){
-		return { data : [
-			{
-				id : ++idState,
-				author : "sam",
-				date : "23/01/1989",
-				body : "I like foobar"
-			},
-			{
-				id : ++idState,
-				author : "tom",
-				date : "23/01/1989",
-				body : "foobar like you!"
-			}
-		]};
-	},
-	componentWillMount : function(){
- 		window.addEventListener("react:newTodo", this.handleNewTodo, false);
- 		window.addEventListener("react:removeTodo", this.handleRemoveTodo, false);
-	},
-	componentWillUnmount : function(){
- 		window.removeEventListener("react:newTodo", this.handleNewTodo, false);
- 		window.removeEventListener("react:removeTodo", this.handleRemoveTodo, false);
-	},
-	render : function() {
-		return (
-			<div className="layout">
-				<div className="layout__top">
-					<h1> Simple Reactjs Todo List</h1>
-				</div>
-				<div className="layout__content">
-					<TodoListComponent data={this.state.data}/>
-				</div>
-			</div>
-		);
-	}
+        newState.unshift(newBlog);
+        this.setState({data : newState});
+    },
+    getInitialState : function(){
+        return { data : [
+            {
+                id : ++idState,
+                author : "sam",
+                date : "23/01/1989",
+                body : "I like foobar"
+            },
+            {
+                id : ++idState,
+                author : "tom",
+                date : "23/01/1989",
+                body : "foobar like you!"
+            }
+        ]};
+    },
+    componentWillMount : function(){
+        window.addEventListener("react:newTodo", this.handleNewTodo, false);
+        window.addEventListener("react:removeTodo", this.handleRemoveTodo, false);
+    },
+    componentWillUnmount : function(){
+        window.removeEventListener("react:newTodo", this.handleNewTodo, false);
+        window.removeEventListener("react:removeTodo", this.handleRemoveTodo, false);
+    },
+    render : function() {
+        return (
+            <div className="layout">
+                <div className="layout__top">
+                    <h1> Simple Reactjs Todo List</h1>
+                </div>
+                <div className="layout__content">
+                    <TodoListComponent data={this.state.data}/>
+                </div>
+            </div>
+        );
+    }
 });
 
 module.exports = TodoComponent;
